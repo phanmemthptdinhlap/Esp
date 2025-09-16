@@ -1,0 +1,1 @@
+export CONTAINERS_STORAGE_CONF=${PWD}/podman/temp-storage.conf

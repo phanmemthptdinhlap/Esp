@@ -1,0 +1,5 @@
+local/
+podman/
+esp-idf/
+tools/
+source/build/

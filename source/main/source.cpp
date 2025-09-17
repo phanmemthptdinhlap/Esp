@@ -3,7 +3,7 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 
-#define BLINK_GPIO GPIO_NUM_2  // GPIO2 trên ESP32
+#define BLINK_GPIO GPIO_NUM_48  // GPIO48 trên ESP32
 
 extern "C" void app_main(void) {
     gpio_reset_pin(BLINK_GPIO);

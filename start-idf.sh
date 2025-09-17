@@ -1,5 +1,8 @@
 args="$@"
 export CONTAINERS_STORAGE_CONF=${PWD}/podman/temp-storage.conf
+if [${ESP_PORT} -ne 0]; then
+    export ESP_PORT=/dev/ttyUSB0
+fi
 podman run --rm -it \
   --userns=keep-id \
   -v ${PWD}:/Esp:z \

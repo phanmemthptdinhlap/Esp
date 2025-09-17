@@ -2,8 +2,7 @@ export CONTAINERS_STORAGE_CONF=${PWD}/podman/temp-storage.conf
 if [${ESP_PORT} -ne ""]; then
     export ESP_PORT=/dev/ttyUSB0
 fi
-podman run --rm\
-  --userns=keep-id \
+podman run --rm \
   -v ${PWD}:/Esp:z \
   -w /Esp/source \
   -e HOME=/tmp \

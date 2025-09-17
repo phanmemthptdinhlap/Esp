@@ -1,6 +1,5 @@
 export CONTAINERS_STORAGE_CONF=${PWD}/podman/temp-storage.conf
 podman run --rm \
-  --userns=keep-id \
   -v ${PWD}:/Esp:z \
   -w /Esp/source \
   -e HOME=/tmp \

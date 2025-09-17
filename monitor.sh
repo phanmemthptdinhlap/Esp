@@ -9,9 +9,9 @@ podman run --rm -it \
   --device=${ESP_PORT} \
   --security-opt label=disable \
   espressif/idf:v5.5.1 \
-  idf.py -p ${ESP_PORT} flash monitor
+  idf.py -p ${ESP_PORT} monitor
 if [ $? -ne 0 ]; then
-  echo "lỗi không thể flash"
+  echo "lỗi không thể kết nối"
   exit 1
 fi
 echo "lệnh thực hiện thành công"

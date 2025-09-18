@@ -1,6 +1,7 @@
-ESP_PORT=$1
-if [${ESP_PORT} -ne ""]; then
-    export ESP_PORT=/dev/ttyUSB0
+source ${PWD}/source/config.txt
+if [$ESP_PORT -ne ""]; then
+    echo "nhập cổng kết nối esp"
+    ESP_PORT= 
 fi
 sudo chmod 666 ${ESP_PORT}
 export CONTAINERS_STORAGE_CONF=${PWD}/podman/temp-storage.conf

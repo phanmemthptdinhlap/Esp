@@ -6,12 +6,12 @@
 
 # Set location of base MicroPython directory.
 if(NOT MICROPY_DIR)
-    get_filename_component(MICROPY_DIR ${CMAKE_CURRENT_LIST_DIR}/../.. ABSOLUTE)
+    get_filename_component(MICROPY_DIR .. ABSOLUTE)
 endif()
 
 # Set location of the ESP32 port directory.
 if(NOT MICROPY_PORT_DIR)
-    get_filename_component(MICROPY_PORT_DIR ${MICROPY_DIR}/ports/esp32 ABSOLUTE)
+    get_filename_component(MICROPY_PORT_DIR . ABSOLUTE)
 endif()
 
 # RISC-V specific inclusions
@@ -136,9 +136,10 @@ list(APPEND MICROPY_SOURCE_PORT
     machine_rtc.c
     machine_sdcard.c
     modespnow.c
+    pin.c
 )
 list(TRANSFORM MICROPY_SOURCE_PORT PREPEND ${MICROPY_PORT_DIR}/)
-list(APPEND MICROPY_SOURCE_PORT ${CMAKE_BINARY_DIR}/pins.c)
+
 
 list(APPEND MICROPY_SOURCE_QSTR
     ${MICROPY_SOURCE_PY}

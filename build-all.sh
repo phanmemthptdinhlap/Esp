@@ -11,7 +11,7 @@ podman run --rm -it \
   --device=${ESP_PORT} \
   --security-opt label=disable \
   espressif/idf:v5.5.1 \
-  /bin/bash -c "idf.py clean && idf.py build && idf.py -p ${ESP_PORT} flash && idf.py -p ${ESP_PORT} monitor"
+  /bin/bash -c "idf.py clean && idf.py build && idf.py -p $ESP_PORT flash && idf.py -p $ESP_PORT monitor"
 if [ $? -ne 0 ]; then
   echo "Lỗi trong quá trình thực hiện: $?"
   exit 1

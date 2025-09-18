@@ -1,0 +1,3 @@
+ESP_PROJECT=micropython
+ESP_CHIP=esp32s3
+ESP_PORT=/dev/ttyUSB0

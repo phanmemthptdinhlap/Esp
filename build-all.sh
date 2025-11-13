@@ -1,9 +1,17 @@
 source ${PWD}/source/config.txt
-if [$ESP_PORT -ne ""]; then
-    echo "nhập cổng kết nối esp"
-    ESP_PORT= 
+echo "flash project $ESP_PROJECT on port $ESP_PORT with chip $ESP_CHIP " 
+if [ -z "$ESP_PORT" ] || [ ! -e "$ESP_PORT" ]; then
+    read -p "nhập cổng kết nối:" ESP_PORT
+    sudo chmod 666 ${ESP_PORT}
+    :>${PWD}/source/config.txt
+    echo "ESP_PROJECT=$ESP_PROJECT" >> ${PWD}/source/config.txt
+    echo "ESP_CHIP=$ESP_CHIP" >> ${PWD}/source/config.txt
+    echo "ESP_PORT=$ESP_PORT" >> ${PWD}/source/config.txt
+else 
+  if [ ! -r "$ESP_PORT" ] || [ ! -w "$ESP_PORT" ]; then
+      sudo chmod 666 ${ESP_PORT}
+  fi 
 fi
-sudo chmod 666 ${ESP_PORT}
 export CONTAINERS_STORAGE_CONF=${PWD}/podman/temp-storage.conf
 podman run --rm -it \
   -v ${PWD}:/Esp:z \
